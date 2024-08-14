@@ -18,23 +18,23 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
       - name: Checkout assets
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
         with:
           ref: ${{ matrix.package-storage-ref }}
           path: assets/${{ matrix.package-storage-ref }}
 
       - name: Checkout packages
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
         with:
           repository: elastic/package-storage
           ref: ${{ matrix.package-storage-ref }}
           path: packages/${{ matrix.package-storage-ref }}
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e # v2
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -53,7 +53,7 @@ jobs:
           )"
 
       - name: Install Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@6edd4406fa81c3da01a34fa6f6343087c207a568 # v3
         if: ${{ steps.update-plan.outputs.need-update == 'yes' }}
         with:
           go-version: '>=1.19.1'
