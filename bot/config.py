@@ -30,7 +30,7 @@ def validate(config):
         branches = package.get("branches", None)
         if not branches:
             package["branches"] = assets.branches
-        elif type(branches) == str:
+        elif type(branches) is str:
             package["branches"] = [x.strip() for x in branches.split(",")]
 
         minimum_version = package.get("minimum-version", None)
